@@ -4,23 +4,23 @@
 
 	<nav th:fragment="paginator">
 
-		<ul>
+		<ul class="pagination">
 
-			<li><span th:if="${page.first}">Primero</span> <a
-				th:if="${not page.first}" th:href="@{${page.url}(page=0)}">Primero</a></li>
+			<li class="page-item"><span th:if="${page.first}">Primero</span> <a class="page-link"
+				th:if="${not page.first}" th:href="@{${page.url}(page=0)}" >Primero</a></li>
 				
-			<li><span th:if="${not page.hasPrevious}">Anterior</span> <a
+			<li class="page-item"><span th:if="${not page.hasPrevious}">Anterior</span> <a class="page-link"
 				th:if="${page.hasPrevious}" th:href="@{${page.url}(page=${page.paginaActual-2})}">Anterior</a></li>
 			
-			<li th:each="item : ${page.paginas}">
+			<li th:each="item : ${page.paginas}" class="page-item">
 			<span th:if="${item.actual}" th:text="${item.numero}"></span>
-			<a th:if="${not item.actual}" th:href="@{${page.url}(page=${item.numero-1})}" th:text="${item.numero}" ></a>
+			<a class="page-link" th:if="${not item.actual}" th:href="@{${page.url}(page=${item.numero-1})}" th:text="${item.numero}" ></a>
 			</li>
 
-			<li><span th:if="${not page.hasNext}">Siguiente</span> <a
+			<li class="page-item"><span th:if="${not page.hasNext}">Siguiente</span> <a class="page-link"
 				th:if="${page.hasNext}" th:href="@{${page.url}(page=${page.paginaActual})}">Siguiente</a></li>
 				
-			<li><span th:if="${page.last}">Ultimo</span> <a
+			<li class="page-item"><span th:if="${page.last}">Ultimo</span> <a class="page-link"
 				th:if="${not page.last}" th:href="@{${page.url}(page=${page.totalPaginas-1})}">Ultimo</a></li>
 		</ul>
 
