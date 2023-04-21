@@ -2,6 +2,7 @@ package com.springboot.app.models.entity;
 
 import java.io.Serializable;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,7 +14,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 
@@ -90,4 +90,19 @@ public class Cliente implements Serializable {
 		return serialVersionUID;
 	}
 
+	public Cliente() {
+		
+	}
+
+	public Cliente(@NotBlank(message = "Campo vacio, coloque informacion") String nombre,
+			@NotBlank(message = "Campo vacio, coloque informacion") String apellidos,
+			@NotBlank(message = "Campo vacio, coloque informacion") @Email(message = "Ingrese un email correcto") String email) {
+		
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+	}
+	
+
+	
 }
