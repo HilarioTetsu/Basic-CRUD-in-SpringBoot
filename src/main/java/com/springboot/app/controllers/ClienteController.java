@@ -2,6 +2,7 @@ package com.springboot.app.controllers;
 
 
 
+
 import javax.validation.Valid;
 
 
@@ -15,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -69,8 +71,7 @@ public class ClienteController {
 	}
 	
 
-	
-	@RequestMapping(value = "/form", method = RequestMethod.POST)
+	@PostMapping(value = "/form")
 	public String guardar(@Valid Cliente cliente, BindingResult result, Model model, SessionStatus status) {
 		
 		//@Model Atribute en caso de que el objeto Cliente cliente se llame diferente a como se pasa al modelo en el metodo GET
